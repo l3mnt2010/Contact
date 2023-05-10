@@ -42,22 +42,22 @@ const ModalOption: React.FC<Sort> = (props) => {
         </div>
         {isSort ? (
           <div className="block mt-3">
-            <h1
+            <button
               onClick={() => {
                 props.sortUp();
               }}
               className="font-bold hover:bg-gray-200"
             >
               A-Z
-            </h1>
-            <h1
+            </button>
+            <button
               onClick={() => {
                 props.sortReserver();
               }}
               className="font-bold hover:bg-gray-200"
             >
               Z-A
-            </h1>
+            </button>
           </div>
         ) : (
           <p
