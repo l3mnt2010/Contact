@@ -19,9 +19,9 @@ const Searchs = () => {
   return (
     <Space direction="vertical">
       <Search
-        placeholder="input search text"
+        placeholder="Input search name"
         onSearch={onSearch}
-        style={{ width: 250 }}
+        style={{ width: 300 }}
       />
     </Space>
   );

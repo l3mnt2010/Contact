@@ -7,7 +7,7 @@ import Group from "@/components/Group";
 import ButtonAdd from "@/components/ButtonAdd";
 import AboutContact from "@/components/AboutContact";
 import Searchs from "@/components/Search";
-import { data } from "autoprefixer";
+
 interface Item {
   id: number;
   name: string;
@@ -43,17 +43,18 @@ export default function Home() {
         let data = res.data;
         data = data.filter((item: Item) => item.name.length <= 16);
         getContact(data);
+        let a = data.sort((a: Item, b: Item) =>
+          a.name[0].localeCompare(b.name[0])
+        );
+        // getContact(a.reverse());
+        getContact(a);
       })
       .catch((e) => {
         console.log(e);
       });
   }, []);
-  const sortContact = () => {
-    let a = contact.sort(function (a: Item, b: Item) {
-      return a.name === b.name ? 0 : a.name > b.name ? 1 : -1;
-    });
-    getContact(a);
-  };
+
+  const sortContact = () => {};
   const sortContactReserve = () => {
     let a = contact.sort(function (a: Item, b: Item) {
       return a.name === b.name ? 0 : a.name < b.name ? 1 : -1;

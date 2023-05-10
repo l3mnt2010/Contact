@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import arrowright from "../../public/images/arrow_right.png";
+import close from "../../public/images/close.png";
 import ModalDelete from "./ModalDelete";
 
 interface Sort {
+  onCloseOption: () => void;
   sortUp: () => void;
   sortReserver: () => void;
 }
@@ -20,6 +22,16 @@ const ModalOption: React.FC<Sort> = (props) => {
           : "mt-10 ml-10 w-52"
       }
     >
+      <Image
+        className="float-right"
+        onClick={() => {
+          props.onCloseOption();
+        }}
+        src={close}
+        alt="Landscape picture"
+        width={20}
+        height={20}
+      />
       <div className="w-full h-20 shadow-lg bg-white px-3">
         <div className={isSort ? "flex" : "flex"}>
           <h1
@@ -41,7 +53,7 @@ const ModalOption: React.FC<Sort> = (props) => {
           />
         </div>
         {isSort ? (
-          <div className="block mt-3">
+          <div className="flex flex-col mt-3">
             <button
               onClick={() => {
                 props.sortUp();
@@ -72,12 +84,12 @@ const ModalOption: React.FC<Sort> = (props) => {
       </div>
 
       <div className="fixed right-5 top-1/4 h-80">
-        {!openDel && (
+        {openDel && (
           <ModalDelete
             title="Delete everything?"
             text="Are you sure you want to remove everything"
             onClose={() => {
-              setOpenDel(true);
+              setOpenDel(false);
             }}
           />
         )}

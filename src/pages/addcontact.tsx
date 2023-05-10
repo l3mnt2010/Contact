@@ -24,7 +24,7 @@ const AddContact = () => {
   return (
     <div className="w-full fixed top-0 ">
       <div className="w-full h-auto shadow-lg flex flex-col">
-        <div className="w-full flex">
+        <div className="w-full flex mt-3">
           <Image
             onClick={() => {
               router.push("/");
@@ -41,8 +41,8 @@ const AddContact = () => {
           className="ml-80"
           src={check}
           alt="Landscape picture"
-          width={30}
-          height={30}
+          width={25}
+          height={25}
         />
       </div>
       <form

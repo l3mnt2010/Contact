@@ -15,23 +15,19 @@ const Navigate: React.FC<Sort> = (props) => {
   const [isOption, setIsOption] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
   return (
-    <div
-      onBlur={() => {
-        setIsOption(false);
-      }}
-      className="w-full h-16 shadow-lg flex"
-    >
+    <div className="w-full h-16 shadow-lg flex">
       <div className="flex">
         <div className="w-auto h-full flex items-center">
           {isSearch ? (
             <Image
+              className="ml-4 mr-2"
               onClick={() => {
                 setIsSearch(false);
               }}
               src={back}
               alt="back"
-              width={20}
-              height={20}
+              width={25}
+              height={25}
             />
           ) : (
             <p className="font-bold text-lg ml-5">Contacts</p>
@@ -45,7 +41,7 @@ const Navigate: React.FC<Sort> = (props) => {
               onClick={() => {
                 setIsSearch(true);
               }}
-              className={!isOption ? "hidden" : ""}
+              className={isOption ? "hidden" : "ml-60"}
               src={search}
               alt="Landscape picture"
               width={20}
@@ -57,6 +53,9 @@ const Navigate: React.FC<Sort> = (props) => {
       <div className="w-auto h-full flex items-center">
         {isOption ? (
           <ModalOption
+            onCloseOption={() => {
+              setIsOption(false);
+            }}
             sortUp={() => {
               props.sortUp();
             }}

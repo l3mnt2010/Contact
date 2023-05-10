@@ -9,7 +9,7 @@ import group23 from "../../public/images/Group 23.png";
 interface Contact {
   image?: string;
   name: string;
-  phonenumber: number;
+  phonenumber: string;
 }
 
 const OnlyUser: React.FC<Contact> = (props) => {
@@ -29,14 +29,33 @@ const OnlyUser: React.FC<Contact> = (props) => {
           <Image src={Edit} alt="Landscape picture" width={30} height={30} />
         </div>
       </div>
-      <div className="w-full text-center font-bold mx-auto text-2xl mt-5">
+      <div className="w-full text-center font-bold mx-auto text-2xl mt-16">
         {name}
       </div>
       <div className="grid grid-cols-2 my-5">
-        <p className="ml-5 font-bold flex items-center">{phonenumber}</p>
+        <a
+          href={`tel:${phonenumber}`}
+          className="ml-5 font-bold flex items-center"
+        >
+          {phonenumber}
+        </a>
         <div className="flex gap-5 ml-20">
-          <Image src={group22} alt="Landscape picture" width={35} height={35} />
-          <Image src={group23} alt="Landscape picture" width={35} height={35} />
+          <a href={`tel:${phonenumber}`}>
+            <Image
+              src={group22}
+              alt="Landscape picture"
+              width={35}
+              height={35}
+            />
+          </a>
+          <a href={`sms:${phonenumber}`}>
+            <Image
+              src={group23}
+              alt="Landscape picture"
+              width={35}
+              height={35}
+            />
+          </a>
         </div>
       </div>
     </div>
