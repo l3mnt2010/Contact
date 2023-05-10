@@ -23,7 +23,7 @@ const Navigate: React.FC<Sort> = (props) => {
     >
       <div className="flex">
         <div className="w-auto h-full flex items-center">
-          {!isSearch ? (
+          {isSearch ? (
             <Image
               onClick={() => {
                 setIsSearch(false);
@@ -38,7 +38,7 @@ const Navigate: React.FC<Sort> = (props) => {
           )}
         </div>
         <div className="w-auto h-full flex items-center">
-          {!isSearch ? (
+          {isSearch ? (
             <Searchs />
           ) : (
             <Image
@@ -55,7 +55,7 @@ const Navigate: React.FC<Sort> = (props) => {
         </div>
       </div>
       <div className="w-auto h-full flex items-center">
-        {!isOption ? (
+        {isOption ? (
           <ModalOption
             sortUp={() => {
               props.sortUp();
